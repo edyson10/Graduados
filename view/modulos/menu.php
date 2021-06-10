@@ -14,7 +14,7 @@
                 <img src="view/presentacion/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="Perfil" class="d-block"><?php echo $_SESSION['nombre']; ?>&nbsp;<?php echo $_SESSION['apellido'] ?></a>
+                <a href="Perfil" class="d-block">Jose Dizmar</a>
             </div>
         </div>
 

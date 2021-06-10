@@ -1,6 +1,6 @@
 /**
  * MÉTODO PARA INICIAR SESIÓN
- **/
+ 
 $(document).ready(function () {
     $('#sdfs').validate({
         rules: {
@@ -52,8 +52,8 @@ $(document).ready(function () {
         }
     });
 });
+**/
 
-/*
 document.getElementById("login").addEventListener('click', function () {
     window.location.href = "Administracion";
-});*/
+});
