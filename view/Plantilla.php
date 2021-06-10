@@ -83,9 +83,6 @@ if (isset($_GET["ubicacion"])) {
                 include_once 'modulos/menu.php';
                 include "modulos/navegacion/" . $_GET["ubicacion"] . ".php";
                 include_once "modulos/footer.php";
-                if (empty($_SESSION['rol'])) {
-                    header("Location: Login");
-                }
                 ?>
             </div>
             <!-- ./wrapper -->

@@ -2,16 +2,6 @@
 
 include_once 'model/conexion.php';
 
-if (empty($_SESSION['rol'])) {
-    header("Location: Login");
-}  
-
-if ($_SESSION['rol'] == "1") {
-    header("Location: Administracion");
-} else {
-    header("Location: Perfil");
-}
-
 ?>
 
 <!-- Content Wrapper. Contains page content -->

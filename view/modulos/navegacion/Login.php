@@ -2,11 +2,6 @@
 
 include_once 'model/conexion.php';
 
-session_start();
-if (isset($_SESSION['rol'])) {
-    header('Location: Administracion');
-}
-
 ?>
 
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0" style="margin: 10px;">
