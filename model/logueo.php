@@ -8,13 +8,11 @@ $identificacion = $_POST['emailUser'];
 $contrasena = $_POST['passwordUser'];
 $tipo = $_POST['ingresarRol'];
 
-//$sql = "SELECT * FROM persona WHERE identificacion = '$identificacion' and contrasena = '$contrasena' and rol = '$tipo'";
-$sql = "SELECT * FROM persona WHERE identificacion = '12345' and contrasena = '12345' and rol = '1'";
-//die(json_encode($sql));
-$ejecutar = mysqli_query($conexion, $sql);
-$rowcount = mysqli_num_rows($ejecutar);
-if ($rowcount > 0) {
-    $row = $ejecutar->fetch_array(MYSQLI_ASSOC);
+$query = $conexion->query("SELECT * FROM persona WHERE identificacion = '12345' and contrasena = '12345' and rol = '1'");
+
+if ($query) {
+    $row = mysqli_fetch_array($query);
+    session_start();
     $_SESSION['nombre'] = $row['nombre'];
     $_SESSION['apellido'] = $row['apellido'];
     $_SESSION['fecha_nacimiento'] = $row['fecha_nacimiento'];

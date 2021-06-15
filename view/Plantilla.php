@@ -1,7 +1,57 @@
 <?php
 
 if (isset($_GET["ubicacion"])) {
-    if ($_GET["ubicacion"] == "Login" || $_GET["ubicacion"] == "Registrar" || $_GET["ubicacion"] == "Recuperar-contraseña") { ?>
+    if ($_GET["ubicacion"] == "Inicio") { ?>
+        <!DOCTYPE html>
+        <html lang="es">
+
+        <head>
+            <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+            <title>Graduados | UFPS</title>
+            <meta content="" name="description">
+            <meta content="" name="keywords">
+
+            <!-- Favicons -->
+            <link href="https://ww2.ufps.edu.co/assets/img/ico/favicon.ico" rel="icon">
+            <link href="https://ww2.ufps.edu.co/assets/img/ico/favicon.ico" rel="apple-touch-icon">
+
+            <!-- Google Fonts -->
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+            <!-- Vendor CSS Files -->
+            <link href="view/presentacion/general/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+            <link href="view/presentacion/general/vendor/icofont/icofont.min.css" rel="stylesheet">
+            <link href="view/presentacion/general/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+            <link href="view/presentacion/general/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+            <link href="view/presentacion/general/vendor/venobox/venobox.css" rel="stylesheet">
+            <link href="view/presentacion/general/vendor/aos/aos.css" rel="stylesheet">
+
+            <!-- Template Main CSS File -->
+            <link href="view/presentacion/general/css/style.css" rel="stylesheet">
+        </head>
+        <?php include "modulos/navegacion/" . $_GET["ubicacion"] . ".php"; ?>
+
+        <!-- Vendor JS Files -->
+        <script src="view/presentacion/general/vendor/jquery/jquery.min.js"></script>
+        <script src="view/presentacion/general/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="view/presentacion/general/vendor/jquery.easing/jquery.easing.min.js"></script>
+        <script src="view/presentacion/general/vendor/php-email-form/validate.js"></script>
+        <script src="view/presentacion/general/vendor/waypoints/jquery.waypoints.min.js"></script>
+        <script src="view/presentacion/general/vendor/counterup/counterup.min.js"></script>
+        <script src="view/presentacion/general/vendor/owl.carousel/owl.carousel.min.js"></script>
+        <script src="view/presentacion/general/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="view/presentacion/general/vendor/venobox/venobox.min.js"></script>
+        <script src="view/presentacion/general/vendor/aos/aos.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="view/presentacion/general/js/main.js"></script>
+
+        </body>
+
+        </html>
+    <?php } else if ($_GET["ubicacion"] == "Login" || $_GET["ubicacion"] == "Registrar" || $_GET["ubicacion"] == "Recuperar-contraseña") { ?>
         <!DOCTYPE html>
         <html lang="es">
 
@@ -21,7 +71,14 @@ if (isset($_GET["ubicacion"])) {
         </head>
 
         <body>
-            <?php include "modulos/navegacion/" . $_GET["ubicacion"] . ".php"; ?>
+            <?php 
+            include_once 'model/conexion.php';
+            //session_start();
+            include "modulos/navegacion/" . $_GET["ubicacion"] . ".php"; 
+            if (empty($_SESSION['rol'])) {
+                header("Location: Login");
+            }
+            ?>
             <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -36,7 +93,8 @@ if (isset($_GET["ubicacion"])) {
     <?php } else if (
         $_GET["ubicacion"] == "Administracion" || $_GET["ubicacion"] == "Registrar-graduados"
         || $_GET["ubicacion"] == "Ver-graduados" || $_GET["ubicacion"] == "Noticia" || $_GET["ubicacion"] == "Evento"
-        || $_GET["ubicacion"] == "Carrera" || $_GET["ubicacion"] == "Perfil") { ?>
+        || $_GET["ubicacion"] == "Carrera" || $_GET["ubicacion"] == "Perfil"
+    ) { ?>
         <!DOCTYPE html>
         <html lang="es">
 
@@ -81,6 +139,7 @@ if (isset($_GET["ubicacion"])) {
                 include_once "model/conexion.php";
                 include_once "modulos/header.php";
                 include_once 'modulos/menu.php';
+                //session_start();
                 include "modulos/navegacion/" . $_GET["ubicacion"] . ".php";
                 include_once "modulos/footer.php";
                 ?>
@@ -145,5 +204,5 @@ if (isset($_GET["ubicacion"])) {
 
 <?php }
 } else {
-    header('location: Login');
+    header('location: Inicio');
 }

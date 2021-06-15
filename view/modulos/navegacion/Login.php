@@ -2,6 +2,13 @@
 
 include_once 'model/conexion.php';
 
+session_start();
+if (isset($_SESSION['rol'])) {
+    header('Location: Administracion');
+} else {
+    header('Location: Login');
+}
+
 ?>
 
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0" style="margin: 10px;">
@@ -33,8 +40,8 @@ include_once 'model/conexion.php';
                                     <option value="2">Egresado</option>
                                 </select>
                             </div>
-                            <a class="btn btn-block login-btn mb-4" name="login" id="login" value="Ingresar">Ingresar</a>
-                            <!--<button class="btn btn-block login-btn mb-4" type="submit">Ingresar</button>-->
+                            <!--<a class="btn btn-block login-btn mb-4" name="login" id="login" value="Ingresar">Ingresar</a>-->
+                            <button class="btn btn-block login-btn mb-4" type="submit">Ingresar</button>
                         </form>
                         <a href="Recuperar-contraseña" class="forgot-password-link">¿Se te olvidó tu contraseña?</a>
                         <!--<p class="login-card-footer-text" style="color: #dd4b39;">¿No tienes una cuenta? <a href="Registrar" class="text-reset">Registrese aqu&iacute;</a></p>-->

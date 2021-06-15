@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2021 a las 02:38:28
+-- Tiempo de generación: 15-06-2021 a las 08:51:45
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -62,6 +62,7 @@ CREATE TABLE `estudio` (
 
 CREATE TABLE `evento` (
   `id` int(11) NOT NULL,
+  `titulo` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_evento` date NOT NULL,
   `lugar_evento` varchar(100) COLLATE utf8_spanish_ci NOT NULL
@@ -71,9 +72,8 @@ CREATE TABLE `evento` (
 -- Volcado de datos para la tabla `evento`
 --
 
-INSERT INTO `evento` (`id`, `descripcion`, `fecha_evento`, `lugar_evento`) VALUES
-(1, 'Reunion graduados 2020', '2021-06-09', 'Universidad Francisco de Paula Santander'),
-(2, 'aeasdas', '2021-06-09', 'asdasdas');
+INSERT INTO `evento` (`id`, `titulo`, `descripcion`, `fecha_evento`, `lugar_evento`) VALUES
+(1, 'Reunion graduados 2020', 'Reunion graduados 2020 en la Biblioteca Cote Lamus.', '2021-06-09', 'Universidad Francisco de Paula Santander');
 
 -- --------------------------------------------------------
 
@@ -98,6 +98,7 @@ CREATE TABLE `experiencia` (
 
 CREATE TABLE `noticia` (
   `id` int(11) NOT NULL,
+  `titulo` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_noticia` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -106,8 +107,9 @@ CREATE TABLE `noticia` (
 -- Volcado de datos para la tabla `noticia`
 --
 
-INSERT INTO `noticia` (`id`, `descripcion`, `fecha_noticia`) VALUES
-(1, 'Reunión de graduados 2010', '2021-06-09');
+INSERT INTO `noticia` (`id`, `titulo`, `descripcion`, `fecha_noticia`) VALUES
+(1, 'Reunión de graduados 2010', 'Se realizara una reunión de graduados del 2010 en la cancha cubierta de la UFPS.', '2021-06-09'),
+(2, 'Evento de las TIC´s', 'Se realizara un evento de la tic en el biblioteca Cote Lamus', '2021-06-14');
 
 -- --------------------------------------------------------
 
@@ -134,7 +136,7 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`id`, `nombre`, `apellido`, `fecha_nacimiento`, `identificacion`, `codigo_institucional`, `correo`, `contrasena`, `fecha_graduacion`, `carrera_graduacion`, `rol`) VALUES
-(1, 'Edyson ', 'Leal', '2021-05-21', '12345', '12345', 'edysonleal3@gmail.com', '12345', '2021-05-21', 1, 2),
+(1, 'Edyson ', 'Leal', '2021-05-21', '12345', '12345', 'edysonleal3@gmail.com', '12345', '2021-05-21', 1, 1),
 (5, 'Matias', 'Leal', '2021-06-09', '1234', '1234', 'edyson@gmail.com', '123', '2021-06-09', 1, 2);
 
 -- --------------------------------------------------------
@@ -155,6 +157,26 @@ CREATE TABLE `rol` (
 INSERT INTO `rol` (`id`, `descripcion`) VALUES
 (1, 'Administrador'),
 (2, 'Egresado');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `universidad`
+--
+
+CREATE TABLE `universidad` (
+  `id` int(11) NOT NULL,
+  `direccion` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `correo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `universidad`
+--
+
+INSERT INTO `universidad` (`id`, `direccion`, `telefono`, `correo`) VALUES
+(1, 'Avenida Gran Colombia No. 12E-96\r\nBarrio Colsag, Cúcuta, Colombia', '(57) 7 5776655 Extensiones 201 y 203', 'ingsistemas@ufps.edu.co');
 
 --
 -- Índices para tablas volcadas
@@ -208,6 +230,12 @@ ALTER TABLE `rol`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `universidad`
+--
+ALTER TABLE `universidad`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -239,7 +267,7 @@ ALTER TABLE `experiencia`
 -- AUTO_INCREMENT de la tabla `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
@@ -252,6 +280,12 @@ ALTER TABLE `persona`
 --
 ALTER TABLE `rol`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `universidad`
+--
+ALTER TABLE `universidad`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
