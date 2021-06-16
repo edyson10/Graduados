@@ -75,6 +75,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 console.log(data)
+                /*
                 if (data.respuesta == 'exito') {
                     ingresoExitoso("Exito!", "Se registro correctamente la movilidad estudiantil saliente.");
                     setTimeout(function () {
@@ -86,7 +87,7 @@ $(document).ready(function () {
                     respuestaError("Error!", "Seleccione un programa correcto.");
                 } else if (data.respuesta == 'error') {
                     respuestaError("Error!", "Ocurrio un error al registrar la movilidad estudiantil.");
-                }
+                }*/
             }
         });
     });

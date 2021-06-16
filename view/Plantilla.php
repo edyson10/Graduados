@@ -71,13 +71,11 @@ if (isset($_GET["ubicacion"])) {
         </head>
 
         <body>
-            <?php 
+            <?php
             include_once 'model/conexion.php';
-            //session_start();
-            include "modulos/navegacion/" . $_GET["ubicacion"] . ".php"; 
-            if (empty($_SESSION['rol'])) {
-                header("Location: Login");
-            }
+            session_start();
+            include "modulos/navegacion/" . $_GET["ubicacion"] . ".php";
+            
             ?>
             <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -93,7 +91,8 @@ if (isset($_GET["ubicacion"])) {
     <?php } else if (
         $_GET["ubicacion"] == "Administracion" || $_GET["ubicacion"] == "Registrar-graduados"
         || $_GET["ubicacion"] == "Ver-graduados" || $_GET["ubicacion"] == "Noticia" || $_GET["ubicacion"] == "Evento"
-        || $_GET["ubicacion"] == "Carrera" || $_GET["ubicacion"] == "Perfil"
+        || $_GET["ubicacion"] == "Carrera" || $_GET["ubicacion"] == "Perfil" || $_GET["ubicacion"] == "Salir"
+        || $_GET["ubicacion"] == "Estudio" || $_GET["ubicacion"] == "Experiencia"
     ) { ?>
         <!DOCTYPE html>
         <html lang="es">

@@ -12,7 +12,12 @@ $query = $conexion->query("SELECT * FROM persona WHERE identificacion = '12345' 
 
 if ($query) {
     $row = mysqli_fetch_array($query);
-    session_start();
+    
+    $_SESSION['nombre'] = $row['nombre'];
+    $ro = $_SESSION['rol'];
+    die(json_encode($ro));
+    
+    /*
     $_SESSION['nombre'] = $row['nombre'];
     $_SESSION['apellido'] = $row['apellido'];
     $_SESSION['fecha_nacimiento'] = $row['fecha_nacimiento'];
@@ -21,8 +26,8 @@ if ($query) {
     $_SESSION['codigo'] = $row['codigo_insitutcional'];
     $_SESSION['fecha_graduacion'] = $row['fecha_graduacion'];
     $_SESSION['carrera_graduacion'] = $row['carrera_graduacion'];
-    $_SESSION['rol'] = $row['rol'];
-    $respuesta = array('respuesta' => 'exito');
+    $_SESSION['rol'] = $row['rol'];*/
+    $respuesta = array('respuesta' => 'exito' , 'rol' => $row['rol']);
 } else {
     $respuesta = array('respuesta' => 'error');
 }

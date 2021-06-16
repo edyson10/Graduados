@@ -183,3 +183,66 @@ $(document).ready(function () {
     });
 });
 
+/**
+ * MÉTODO PARA REGISTRAR UN ESTUDIO
+ */
+ $(document).ready(function () {
+    $("#FormRegistrarEstudio").on('submit', function (e) {
+        e.preventDefault();
+        var datos = $(this).serializeArray();
+        $.ajax({
+            url: 'model/registrarEstudios.php',
+            data: datos,
+            type: $(this).attr("method"),
+            dataType: "json",
+            beforeSend: function () {
+                respuestaInfoEspera("Registrando... ¡Espere por favor!");
+            },
+            success: function (data) {
+                console.log(data);
+                if (data.respuesta == 'exito') {
+                    ingresoExitoso("Exito!", "Se registro correctamente su estudio.");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1000);
+                } else if (data.respuesta == 'error') {
+                    respuestaError("Error!", "Ocurrio un error al registrar.");
+                } else if (data.respuesta == 'vacio') {
+                    respuestaError("Error!", "Debe de completar los campos.");
+                }
+            }
+        });
+    });
+});
+
+/**
+ * MÉTODO PARA REGISTRAR UN EXPERIENCIA
+ */
+ $(document).ready(function () {
+    $("#FormRegistrarExperiencia").on('submit', function (e) {
+        e.preventDefault();
+        var datos = $(this).serializeArray();
+        $.ajax({
+            url: 'model/registrarExperiencia.php',
+            data: datos,
+            type: $(this).attr("method"),
+            dataType: "json",
+            beforeSend: function () {
+                respuestaInfoEspera("Registrando... ¡Espere por favor!");
+            },
+            success: function (data) {
+                console.log(data);
+                if (data.respuesta == 'exito') {
+                    ingresoExitoso("Exito!", "Se registro correctamente su experiencia.");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1000);
+                } else if (data.respuesta == 'error') {
+                    respuestaError("Error!", "Ocurrio un error al registrar.");
+                } else if (data.respuesta == 'vacio') {
+                    respuestaError("Error!", "Debe de completar los campos.");
+                }
+            }
+        });
+    });
+});

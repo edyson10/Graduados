@@ -35,7 +35,8 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Noticia</th>
+                                        <th>Titulo</th>
+                                        <th>Descripcion</th>
                                         <th>Fecha noticia</th>
                                         <th>Acci&oacute;n</th>
                                     </tr>
@@ -46,6 +47,7 @@
                                     while ($row = mysqli_fetch_array($query)) {
                                         echo "<tr>
                                                 <td>" . $row["id"] . "</td>
+                                                <td>" . utf8_encode($row["titulo"]) . "</td>
                                                 <td>" . utf8_encode($row["descripcion"]) . "</td>
                                                 <td>" . utf8_encode($row["fecha_noticia"]) . "</td>
                                                 <td>
@@ -83,7 +85,13 @@
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-4 col-form-label">Noticia</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="noticia" name="noticia" placeholder="Ingrese la noticia">
+                                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ingrese el titulo de la noticia">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 col-form-label">Descripci&oacute;n</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="noticia" name="noticia" placeholder="Ingrese una descripci&oacute;n de la noticia">
                                 </div>
                             </div>
                             <div class="form-group row">

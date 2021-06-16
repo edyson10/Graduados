@@ -4,11 +4,16 @@ require_once 'conexion.php';
 
 //die(json_encode($_POST));
 
-$evento = $_POST['evento'];
+$titulo = $_POST['tituloEvento'];
+$descripcion = $_POST['descripcionEvento'];
 $lugar = $_POST['lugarEvento'];
 $fecha = $_POST['fechaEvento'];
 
-if (empty($evento)) {
+if (empty($titulo)) {
+    $respuesta = array('respuesta' => 'vacio');
+    echo json_encode($respuesta);
+    return;
+} else if (empty($descripcion)) {
     $respuesta = array('respuesta' => 'vacio');
     echo json_encode($respuesta);
     return;
@@ -17,7 +22,8 @@ if (empty($evento)) {
     echo json_encode($respuesta);
     return;
 } else {
-    $sql = $conexion->query("INSERT INTO evento (id, descripcion, fecha_evento, lugar_evento) VALUES (NULL, '$evento', '$fecha', '$lugar')");
+    $sql = $conexion->query("INSERT INTO evento (id, titulo, descripcion, fecha_evento, lugar_evento) 
+    VALUES (NULL, '$titulo', '$descripcion', '$fecha', '$lugar')");
     if ($sql) {
         $respuesta = array('respuesta' => 'exito');
     } else {
