@@ -2,7 +2,6 @@
  * METODO PARA ELIMINAR EL ESTUDIO
  */
 function eliminarEstudio(id) {
-  console.log(id);
   Swal.fire({
     title: "Eliminar",
     text: "¿Seguro que quieres eliminar el estudio?",
@@ -44,7 +43,6 @@ function eliminarEstudio(id) {
  * METODO PARA ELIMINAR EL EXPERIENCIA
  */
 function eliminarExperiencia(id) {
-  console.log(id);
   Swal.fire({
     title: "Eliminar",
     text: "¿Seguro que quieres eliminar el experiencia?",
@@ -90,7 +88,6 @@ function eliminarExperiencia(id) {
  * METODO PARA ELIMINAR EL NOTICIA
  */
 function eliminarNoticia(id) {
-  console.log(id);
   Swal.fire({
     title: "Eliminar",
     text: "¿Seguro que quieres eliminar la noticia?",
@@ -136,7 +133,6 @@ function eliminarNoticia(id) {
  * METODO PARA ELIMINAR EL EVENTO
  */
 function eliminarEvento(id) {
-  console.log(id);
   Swal.fire({
     title: "Eliminar",
     text: "¿Seguro que quieres eliminar el evento?",

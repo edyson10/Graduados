@@ -61,7 +61,6 @@ $(document).ready(function () {
                 fechaGraduado: $("#fechaGraduado").val(),
                 carreraGraduado: $("#carreraGraduado").val()
             }
-            console.log(datos);
             $.ajax({
                 url: 'model/registrarPersona.php',
                 method: 'post',
@@ -103,7 +102,6 @@ $(document).ready(function () {
                 respuestaInfoEspera("Registrando... ¡Espere por favor!");
             },
             success: function (data) {
-                console.log(data);
                 if (data.respuesta == 'exito') {
                     ingresoExitoso("Exito!", "Se registro correctamente la noticia.");
                     setTimeout(function () {
@@ -135,7 +133,6 @@ $(document).ready(function () {
                 respuestaInfoEspera("Registrando... ¡Espere por favor!");
             },
             success: function (data) {
-                console.log(data);
                 if (data.respuesta == 'exito') {
                     ingresoExitoso("Exito!", "Se registro correctamente la noticia.");
                     setTimeout(function () {
@@ -167,7 +164,6 @@ $(document).ready(function () {
                 respuestaInfoEspera("Registrando... ¡Espere por favor!");
             },
             success: function (data) {
-                console.log(data);
                 if (data.respuesta == 'exito') {
                     ingresoExitoso("Exito!", "Se registro correctamente el evento.");
                     setTimeout(function () {
@@ -199,7 +195,6 @@ $(document).ready(function () {
                 respuestaInfoEspera("Registrando... ¡Espere por favor!");
             },
             success: function (data) {
-                console.log(data);
                 if (data.respuesta == 'exito') {
                     ingresoExitoso("Exito!", "Se registro correctamente su estudio.");
                     setTimeout(function () {
@@ -231,7 +226,6 @@ $(document).ready(function () {
                 respuestaInfoEspera("Registrando... ¡Espere por favor!");
             },
             success: function (data) {
-                console.log(data);
                 if (data.respuesta == 'exito') {
                     ingresoExitoso("Exito!", "Se registro correctamente su experiencia.");
                     setTimeout(function () {
