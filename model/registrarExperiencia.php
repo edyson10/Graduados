@@ -2,12 +2,13 @@
 
 require_once 'conexion.php';
 
+session_start();
 $cargo = $_POST['cargoExperiencia'];
 $empresa = $_POST['empresaExperiencia'];
 $fecha_inicio = $_POST['fechaInicioExperiencia'];
 $fecha_fin = $_POST['fechaFinExperiencia'];
-//$persona = $_POST['persona'];
-$persona = '12345';
+$persona = $_SESSION['identificacion'];
+//$persona = '12345';
 
 if (empty($cargo)) {
     $respuesta = array('respuesta' => 'vacio');

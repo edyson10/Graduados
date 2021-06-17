@@ -1,3 +1,4 @@
+<?php $identificacion = $_SESSION['identificacion']; ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -42,14 +43,14 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = $conexion->query("SELECT * FROM estudio where persona = '109044'");
+                                    $query = $conexion->query("SELECT * FROM estudio where persona = '$identificacion'");
                                     while ($row = mysqli_fetch_array($query)) {
                                         echo "<tr>
                                                 <td>" . $row["id"] . "</td>
                                                 <td>" . utf8_encode($row["carrera"]) . "</td>
                                                 <td>" . utf8_encode($row["ano_graduacion"]) . "</td>
                                                 <td>
-                                                    <a class='btn btn-danger' onclick='verPersonal(" . $row["id"] . "," . 2 . ")'><i class='fas fa-trash'></i></a>
+                                                    <a class='btn btn-danger' onclick='eliminarEstudio(" . $row["id"] . ")'><i class='fas fa-trash'></i></a>
                                                 </td>
                                             </tr>";
                                     }

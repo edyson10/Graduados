@@ -51,7 +51,7 @@
                                                 <td>" . utf8_encode($row["descripcion"]) . "</td>
                                                 <td>" . utf8_encode($row["fecha_noticia"]) . "</td>
                                                 <td>
-                                                    <a class='btn btn-danger' onclick='verPersonal(" . $row["id"] . "," . 2 . ")'><i class='fas fa-trash'></i></a>
+                                                    <a class='btn btn-danger' onclick='eliminarNoticia(" . $row["id"] . ")'><i class='fas fa-trash'></i></a>
                                                 </td>
                                             </tr>";
                                     }

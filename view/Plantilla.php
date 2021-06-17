@@ -73,9 +73,7 @@ if (isset($_GET["ubicacion"])) {
         <body>
             <?php
             include_once 'model/conexion.php';
-            session_start();
             include "modulos/navegacion/" . $_GET["ubicacion"] . ".php";
-            
             ?>
             <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -136,9 +134,9 @@ if (isset($_GET["ubicacion"])) {
                 <!-- Content Wrapper. Contains page content -->
                 <?php
                 include_once "model/conexion.php";
+                session_start();
                 include_once "modulos/header.php";
                 include_once 'modulos/menu.php';
-                //session_start();
                 include "modulos/navegacion/" . $_GET["ubicacion"] . ".php";
                 include_once "modulos/footer.php";
                 ?>
@@ -193,6 +191,7 @@ if (isset($_GET["ubicacion"])) {
             <script src="view/presentacion/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
             <script src="view/presentacion/general/js/registro.js"></script>
+            <script src="view/presentacion/general/js/eliminar.js"></script>
             <script src="view/presentacion/general/js/alertas.js"></script>
             <script src="view/presentacion/general/js/sweetalert2.min.js"></script>
 

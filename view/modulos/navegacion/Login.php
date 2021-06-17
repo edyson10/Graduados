@@ -2,8 +2,8 @@
 
 include_once 'model/conexion.php';
 
+//session_start();
 /*
-session_start();
 if (isset($_SESSION['rol'])) {
     header('Location: Administracion');
 } else {

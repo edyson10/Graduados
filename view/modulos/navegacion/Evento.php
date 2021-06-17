@@ -53,7 +53,7 @@
                                                 <td>" . utf8_encode($row["lugar_evento"]) . "</td>
                                                 <td>" . utf8_encode($row["fecha_evento"]) . "</td>
                                                 <td>
-                                                    <a class='btn btn-danger' onclick='verPersonal(" . $row["id"] . "," . 2 . ")'><i class='fas fa-trash'></i></a>
+                                                    <a class='btn btn-danger' onclick='eliminarEvento(" . $row["id"] . ")'><i class='fas fa-trash'></i></a>
                                                 </td>
                                             </tr>";
                                     }

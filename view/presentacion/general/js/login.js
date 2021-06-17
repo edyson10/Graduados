@@ -75,19 +75,20 @@ $(document).ready(function () {
             },
             success: function (data) {
                 console.log(data)
-                /*
                 if (data.respuesta == 'exito') {
-                    ingresoExitoso("Exito!", "Se registro correctamente la movilidad estudiantil saliente.");
-                    setTimeout(function () {
-                        location.reload();
-                    }, 1000);
-                } else if (data.respuesta == 'noactividad') {
-                    respuestaError("Error!", "Seleccione una actividad correcta.");
-                } else if (data.respuesta == 'noprograma') {
-                    respuestaError("Error!", "Seleccione un programa correcto.");
+                    ingresoExitoso("Exito!", "Se ha iniciado sesión correctamente.");
+                    if (data.rol == '1') {
+                      setTimeout(function () {
+                        window.location.href="Administracion";
+                      }, 1000);
+                    } else {
+                      setTimeout(function () {
+                        window.location.href="Perfil";
+                      }, 1000);
+                    }
                 } else if (data.respuesta == 'error') {
-                    respuestaError("Error!", "Ocurrio un error al registrar la movilidad estudiantil.");
-                }*/
+                    respuestaError("Error!", "Usuario, contraseña y/ o rol incorrectos");
+                }
             }
         });
     });

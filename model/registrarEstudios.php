@@ -2,10 +2,11 @@
 
 require_once 'conexion.php';
 
+session_start();
 $carrera = $_POST['carreraEstudio'];
 $anio_graduacion = $_POST['anioGraduacionEstudio'];
-//$persona = $_POST['persona'];
-$persona = '109044';
+$persona = $_SESSION['identificacion'];
+//$persona = '109044';
 
 if (empty($carrera)) {
     $respuesta = array('respuesta' => 'vacio');
