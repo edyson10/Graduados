@@ -60,14 +60,14 @@
                                                 <input type="text" class="form-control" id="codigoGraduado" name="codigoGraduado" placeholder="Ingrese el c&oacute;digo institucional">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-4 col-form-label">Correo</label>
                                             <div class="col-sm-8">
                                                 <input type="email" class="form-control" id="correoGraduado" name="correoGraduado" placeholder="Ingrese el correo personal">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-4 col-form-label">Contrase&ntilde;a</label>
                                             <div class="col-sm-8">
@@ -97,6 +97,12 @@
                                                     }
                                                     ?>
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-4 col-form-label">Ubicaci&oacute;n</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="ubicacionGraduado" name="ubicacionGraduado" placeholder="Ingrese su ubicaci&oacute;nn actual">
                                             </div>
                                         </div>
                                     </div>

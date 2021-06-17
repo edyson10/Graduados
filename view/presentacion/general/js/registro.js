@@ -1,15 +1,3 @@
-/*
-document.getElementById("logi").addEventListener('click', function () { 
-    var nombre = document.getElementById("emailUser").value;
-    var pass = document.getElementById("passwordUser").value;
-    var rol_sistema = document.getElementById("ingresarRol");
-    var rol = rol_sistema.options[rol_sistema.selectedIndex].value;
-
-    console.log(rol);
-    ingresoExitoso("Exito!", "Se ha iniciado sesión correctamente.");
-});*/
-
-
 /**
  * MÉTODO PARA REGISTRAR EL GRADUADO
  */
@@ -24,7 +12,8 @@ $(document).ready(function () {
             correoGraduado: { required: true, email: true },
             contrasenaGraduado: { required: true },
             repContrasenaGraduado: { required: true },
-            fechaGraduado: { required: true }
+            fechaGraduado: { required: true },
+            ubicacionGraduado: { required: true }
         },
         messages: {
             nombreGraduado: { required: "Debe de completar los campos." },
@@ -35,7 +24,8 @@ $(document).ready(function () {
             correoGraduado: { required: "Debe de completar los campos", email: "Digite un correo correcto." },
             contrasenaGraduado: { required: "Debe de completar los campos", },
             repContrasenaGraduado: { required: "Debe de completar los campos" },
-            fechaGraduado: { required: "Debe de completar los campos" }
+            fechaGraduado: { required: "Debe de completar los campos" },
+            ubicacionGraduado: { required: "Debe de completar los campos" }
         },
         errorElement: 'span',
         errorPlacement: function (error, element) {
@@ -59,7 +49,8 @@ $(document).ready(function () {
                 contrasenaGraduado: $("#contrasenaGraduado").val(),
                 repContrasenaGraduado: $("#repContrasenaGraduado").val(),
                 fechaGraduado: $("#fechaGraduado").val(),
-                carreraGraduado: $("#carreraGraduado").val()
+                carreraGraduado: $("#carreraGraduado").val(),
+                ubicacionGraduado: $("#ubicacionGraduado").val()
             }
             $.ajax({
                 url: 'model/registrarPersona.php',

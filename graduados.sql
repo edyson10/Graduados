@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2021 a las 08:51:45
+-- Tiempo de generación: 17-06-2021 a las 19:27:37
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -39,7 +39,8 @@ CREATE TABLE `carrera` (
 
 INSERT INTO `carrera` (`id`, `descripcion`) VALUES
 (1, 'Ingeniería de Sistemas'),
-(2, 'Enfermeria');
+(2, 'Enfermeria'),
+(3, 'Ingenieria biotecnologica');
 
 -- --------------------------------------------------------
 
@@ -73,7 +74,8 @@ CREATE TABLE `evento` (
 --
 
 INSERT INTO `evento` (`id`, `titulo`, `descripcion`, `fecha_evento`, `lugar_evento`) VALUES
-(1, 'Reunion graduados 2020', 'Reunion graduados 2020 en la Biblioteca Cote Lamus.', '2021-06-09', 'Universidad Francisco de Paula Santander');
+(1, 'Reunion graduados 2020', 'Reunion graduados 2020 en la Biblioteca Cote Lamus.', '2021-06-09', 'Universidad Francisco de Paula Santander'),
+(2, 'Reunion de empresarios', 'Reunion del CEO de Loyalsoft', '2021-06-15', 'Aula sur 404');
 
 -- --------------------------------------------------------
 
@@ -86,9 +88,17 @@ CREATE TABLE `experiencia` (
   `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `empresa` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_inicio` date NOT NULL,
-  `fecha_fin` date NOT NULL,
+  `fecha_fin` date DEFAULT NULL,
   `persona` varchar(20) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `experiencia`
+--
+
+INSERT INTO `experiencia` (`id`, `descripcion`, `empresa`, `fecha_inicio`, `fecha_fin`, `persona`) VALUES
+(1, 'Desarrollador fullstack', 'TUR Colombia', '2021-06-15', NULL, '12345'),
+(2, 'Desarrollador Android', 'WPOSS', '2021-06-06', '2021-06-15', '12345');
 
 -- --------------------------------------------------------
 
@@ -109,7 +119,8 @@ CREATE TABLE `noticia` (
 
 INSERT INTO `noticia` (`id`, `titulo`, `descripcion`, `fecha_noticia`) VALUES
 (1, 'Reunión de graduados 2010', 'Se realizara una reunión de graduados del 2010 en la cancha cubierta de la UFPS.', '2021-06-09'),
-(2, 'Evento de las TIC´s', 'Se realizara un evento de la tic en el biblioteca Cote Lamus', '2021-06-14');
+(2, 'Evento de las TIC´s', 'Se realizara un evento de la tic en el biblioteca Cote Lamus', '2021-06-14'),
+(3, 'Prueba', 'Prueba lllll', '2021-06-15');
 
 -- --------------------------------------------------------
 
@@ -128,6 +139,7 @@ CREATE TABLE `persona` (
   `contrasena` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_graduacion` date NOT NULL,
   `carrera_graduacion` int(11) NOT NULL,
+  `ubicacion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -135,9 +147,10 @@ CREATE TABLE `persona` (
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`id`, `nombre`, `apellido`, `fecha_nacimiento`, `identificacion`, `codigo_institucional`, `correo`, `contrasena`, `fecha_graduacion`, `carrera_graduacion`, `rol`) VALUES
-(1, 'Edyson ', 'Leal', '2021-05-21', '12345', '12345', 'edysonleal3@gmail.com', '12345', '2021-05-21', 1, 1),
-(5, 'Matias', 'Leal', '2021-06-09', '1234', '1234', 'edyson@gmail.com', '123', '2021-06-09', 1, 2);
+INSERT INTO `persona` (`id`, `nombre`, `apellido`, `fecha_nacimiento`, `identificacion`, `codigo_institucional`, `correo`, `contrasena`, `fecha_graduacion`, `carrera_graduacion`, `ubicacion`, `rol`) VALUES
+(1, 'Edyson ', 'Leal', '2021-05-21', '12345', '12345', 'edysonleal3@gmail.com', '12345', '2021-05-21', 1, 'Bogota', 1),
+(5, 'Matias', 'Leal', '2021-06-09', '1234', '1234', 'edyson@gmail.com', '123', '2021-06-09', 1, 'Cucuta', 2),
+(7, 'Prueba', 'Prueba', '2021-06-17', '1098765', '109876', 'edyson@gmail.com', '123', '2021-06-17', 2, 'Dubai', 2);
 
 -- --------------------------------------------------------
 
@@ -243,37 +256,37 @@ ALTER TABLE `universidad`
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `estudio`
 --
 ALTER TABLE `estudio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `experiencia`
 --
 ALTER TABLE `experiencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`

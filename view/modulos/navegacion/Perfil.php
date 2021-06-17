@@ -2,7 +2,7 @@
 
 $identificacion = $_SESSION['identificacion'];
 $query = $conexion->query("SELECT p.nombre, p.apellido, p.fecha_nacimiento, p.identificacion, p.codigo_institucional, p.correo, p.fecha_graduacion, 
-c.descripcion AS carrera, r.descripcion AS rol FROM persona p INNER JOIN carrera c ON c.id = p.carrera_graduacion INNER JOIN rol r ON r.id = p.rol 
+c.descripcion AS carrera, r.descripcion AS rol, p.ubicacion FROM persona p INNER JOIN carrera c ON c.id = p.carrera_graduacion INNER JOIN rol r ON r.id = p.rol 
 WHERE identificacion = '$identificacion'");
 if ($query) {
     $row = mysqli_fetch_array($query);
@@ -14,6 +14,7 @@ if ($query) {
     $correo = $row['correo'];
     $fecha_graduacion = $row['fecha_graduacion'];
     $carrera_graduacion = $row['carrera'];
+    $ubicacion = $row['ubicacion'];
     $rol = $row['rol'];
 }
 ?>
@@ -55,6 +56,9 @@ if ($query) {
                                 <li class="list-group-item">
                                     <b>identificaci&oacute;n</b> <a class="float-right"><?php echo $identificacion; ?></a>
                                 </li>
+                                <li class="list-group-item">
+                                    <b>Carrera</b> <a class="float-right"><?php echo utf8_encode($carrera_graduacion); ?></a>
+                                </li>
                             </ul>
                         </div>
                         <!-- /.card-body -->
@@ -76,7 +80,7 @@ if ($query) {
                                     <b>Correo</b> <a class="float-right"><?php echo $correo; ?></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Carrera</b> <a class="float-right"><?php echo utf8_encode($carrera_graduacion); ?></a>
+                                    <b>Ubicaci&oacute;n</b> <a class="float-right"><?php echo utf8_encode($ubicacion); ?></a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>Rol</b> <a class="float-right"><?php echo utf8_encode($rol); ?></a>
